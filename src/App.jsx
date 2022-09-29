@@ -30,7 +30,7 @@ function Effects() {
         eskil={false} // Eskil's vignette technique
         blendFunction={BlendFunction.NORMAL} // blend mode
       />
-      <Noise opacity={0.1} />
+      <Noise opacity={0.2} />
     </EffectComposer>
   );
 }
@@ -41,7 +41,9 @@ export default function App() {
       {isMobile || isTablet || isWearable ? (
         <div className='center'>Mobile version is still in development 🥲</div>
       ) : (
-        <Canvas pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
+        <Canvas
+          shadows
+          pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
           <Suspense fallback={<ProgressLoader />}>
             <directionalLight intensity={0.7} position={[-2, 0, 0]} />
             <ScrollPage />
