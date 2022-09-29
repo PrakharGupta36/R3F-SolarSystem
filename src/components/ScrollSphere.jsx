@@ -27,7 +27,7 @@ export default function ScrollSphere({
       </Html>
       <Html center position={[0, -3, 0]}>
         <div className='mobile'>
-          <p> Scroll Horiztontally </p>
+          <p> Scroll Horizontally </p>
         </div>
       </Html>
 
