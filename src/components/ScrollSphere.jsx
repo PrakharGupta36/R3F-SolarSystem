@@ -20,12 +20,12 @@ export default function ScrollSphere({
           scale={scale}
         />
       </Scroll>
-      <Html center prepend position={position}>
+      <Html center position={[position[0], position[1] + 3.25, position[2]]}>
         <div className='html-wrapper'>
           <p> {text} </p>
         </div>
       </Html>
-      <Html center prepend position={[0, -3, 0]}>
+      <Html center position={[0, -3, 0]}>
         <div className='mobile'>
           <p> Scroll Horiztontally </p>
         </div>

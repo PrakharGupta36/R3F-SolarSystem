@@ -1,6 +1,6 @@
 import { useFrame } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useRef } from "react";
+
 
 export default function Sphere({ position, scale = 1, model, rotation }) {
   const ref = useRef();
@@ -17,6 +17,7 @@ export default function Sphere({ position, scale = 1, model, rotation }) {
         scale={scale}>
         <primitive object={model} />
       </group>
+
     </>
   );
 }

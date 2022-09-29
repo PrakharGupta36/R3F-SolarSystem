@@ -7,6 +7,41 @@ import { Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import { ProgressLoader } from "./data/Data";
 import { isMobile, isTablet, isWearable } from "react-device-detect";
+import {
+  Bloom,
+  DepthOfField,
+  EffectComposer,
+  Noise,
+  SSAO,
+  Vignette,
+} from "@react-three/postprocessing";
+import { BlendFunction } from "postprocessing";
+
+function Effects() {
+  return (
+    <EffectComposer>
+      <DepthOfField
+        focusDistance={15}
+        focalLength={0.02}
+        bokehScale={0.5}
+        height={500}
+      />
+      <Bloom
+        luminanceThreshold={0}
+        luminanceSmoothing={1}
+        height={300}
+        opacity={1}
+      />
+      <Vignette
+        offset={0.25} // vignette offset
+        darkness={1} // vignette darkness
+        eskil={false} // Eskil's vignette technique
+        blendFunction={BlendFunction.NORMAL} // blend mode
+      />
+      <Noise opacity={0.1} />
+    </EffectComposer>
+  );
+}
 
 export default function App() {
   return (
@@ -16,16 +51,17 @@ export default function App() {
       ) : (
         <Canvas pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
           <Suspense fallback={<ProgressLoader />}>
-            <directionalLight intensity={0.9} position={[-20, 0, 1]} />
+            <directionalLight intensity={0.7} position={[-2, 0, 0]} />
             <ScrollPage />
             <Stars
-              count={5000}
+              count={10000}
               factor={1}
-              radius={50}
+              radius={100}
               saturation={50}
-              speed={2.5}
+              speed={1}
             />
           </Suspense>
+          <Effects />
         </Canvas>
       )}
     </>

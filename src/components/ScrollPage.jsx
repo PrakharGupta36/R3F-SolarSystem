@@ -9,7 +9,7 @@ export default function ScrollPage() {
       <ScrollControls
         pages={8.5} // Each page takes 100% of the height of the canvas
         distance={1} // A factor that increases scroll bar travel (default: 1)
-        damping={15} // Friction, higher is faster (default: 4)
+        damping={17} // Friction, higher is faster (default: 4)
         horizontal={true}
         infinite={false} // Can also scroll infinitely (default: false)
       >
