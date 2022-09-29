@@ -35,22 +35,7 @@ function ProgressBar({ height, progress, bgcolor }) {
 
 export function ProgressLoader() {
   const { progress } = useProgress();
-  useEffect(() => {
-    if (progress > 99) {
-      document.body.animate(
-        [
-          // keyframes
-          { opacity: 0 },
-          { opacity: 1 },
-        ],
-        {
-          // timing options
-          duration: 700,
-          iterations: 1,
-        }
-      );
-    }
-  }, [progress]);
+ 
 
   return (
     <Html position={[0, 0, 0]} center>
