@@ -29,6 +29,7 @@ export function useModels() {
       model: mercury,
       position: [0, 0, 0],
       scale: 0.009,
+      rotationClockWise: false,
     },
     {
       id: 2,
@@ -36,27 +37,33 @@ export function useModels() {
       model: venus,
       position: isMobile || isTablet ? [0, -15, 0] : [15, 0, 0],
       scale: 0.013,
+      rotationClockWise: true,
     },
+
     {
       id: 3,
       text: "Earth",
       model: earth,
       position: isMobile || isTablet ? [0, -30, 0] : [30, 0, 0],
-      scale: 0.017,
+      scale: 1.75,
+      rotation: [0, -20, 0],
+      rotationClockWise: false,
     },
     {
       id: 4,
       text: "Mars",
       model: mars,
       position: isMobile || isTablet ? [0, -45, 0] : [45, 0, 0],
-      scale: 0.19,
+      scale: 0.65,
+      rotationClockWise: false,
     },
     {
       id: 5,
       text: "Jupiter",
       model: jupiter,
       position: isMobile || isTablet ? [0, -60, 0] : [60, 0, 0],
-      scale: 0.025,
+      scale: 1.25,
+      rotationClockWise: false,
     },
     {
       id: 6,
@@ -64,7 +71,8 @@ export function useModels() {
       model: saturn,
       position: isMobile || isTablet ? [0, -75, 0] : [75, 0, 0],
       scale: 0.005,
-      rotation: true,
+      rotation: [0, 0, -15],
+      rotationClockWise: false,
     },
     {
       id: 7,
@@ -72,6 +80,7 @@ export function useModels() {
       model: uranus,
       position: isMobile || isTablet ? [0, -90, 0] : [90, 0, 0],
       scale: 1,
+      rotationClockWise: false,
     },
     {
       id: 8,
@@ -79,6 +88,7 @@ export function useModels() {
       model: neptune,
       position: isMobile || isTablet ? [0, -105, 0] : [105, 0, 0],
       scale: 0.009,
+      rotationClockWise: false,
     },
   ];
 }

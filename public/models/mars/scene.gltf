@@ -3,24 +3,24 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 25425,
+      "count": 33708,
       "max": [
-        0.9799657464027405,
-        0.998112142086029,
-        0.9799658060073853
+        0.9872313737869263,
+        0.9975767135620117,
+        0.9872314929962158
       ],
       "min": [
-        -0.9799658060073853,
-        -0.998112142086029,
-        -0.9799659848213196
+        -0.9872310161590576,
+        -0.9975767135620117,
+        -0.9872310161590576
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 305100,
+      "byteOffset": 404496,
       "componentType": 5126,
-      "count": 25425,
+      "count": 33708,
       "max": [
         1.0,
         1.0,
@@ -36,10 +36,10 @@
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 25425,
+      "count": 33708,
       "max": [
-        1.0000001192092896,
-        1.0
+        1.0000003576278687,
+        1.0000001192092896
       ],
       "min": [
         0.0,
@@ -50,15 +50,15 @@
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 149760,
+      "count": 190464,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "AirStudios (https://sketchfab.com/sebbe613)",
+      "author": "PatelDev (https://sketchfab.com/PatelDev)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/mars-5fc8b7168b044527a05ed3903c998b65",
+      "source": "https://sketchfab.com/3d-models/mars-0bbd08db494b4e2a873c624021248d12",
       "title": "Mars"
     },
     "generator": "Sketchfab-12.68.0",
@@ -67,22 +67,22 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 599040,
+      "byteLength": 761856,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 203400,
-      "byteOffset": 599040,
+      "byteLength": 269664,
+      "byteOffset": 761856,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 610200,
-      "byteOffset": 802440,
+      "byteLength": 808992,
+      "byteOffset": 1031520,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
@@ -90,31 +90,30 @@
   ],
   "buffers": [
     {
-      "byteLength": 1412640,
+      "byteLength": 1840512,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/lambert3_baseColor.jpeg"
+      "uri": "textures/Scene_-_Root_baseColor.jpeg"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "lambert3",
+      "name": "Scene_-_Root",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
           "index": 0
         },
-        "metallicFactor": 0.0,
-        "roughnessFactor": 0.5671661528920344
+        "metallicFactor": 0.0
       }
     }
   ],
   "meshes": [
     {
-      "name": "pSphere1_lambert3_0",
+      "name": "Object_0",
       "primitives": [
         {
           "attributes": {
@@ -158,59 +157,59 @@
       "children": [
         2
       ],
+      "name": "root"
+    },
+    {
+      "children": [
+        3
+      ],
       "matrix": [
         1.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0,
+        2.220446049250313e-16,
         1.0,
         0.0,
         0.0,
         -1.0,
-        0.0,
+        2.220446049250313e-16,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0
       ],
-      "name": "bb9595e115604d53ae421356c9daac6d.fbx"
-    },
-    {
-      "children": [
-        3
-      ],
-      "name": "RootNode"
+      "name": "GLTF_SceneRootNode"
     },
     {
       "children": [
         4
       ],
       "matrix": [
-        7.3374481201171875,
+        1.9785765409469604,
         0.0,
         0.0,
         0.0,
         0.0,
-        7.3374481201171875,
+        1.9785765409469604,
         0.0,
         0.0,
         0.0,
         0.0,
-        7.3374481201171875,
+        1.9785765409469604,
         0.0,
         0.0,
         0.0,
         0.0,
         1.0
       ],
-      "name": "pSphere1"
+      "name": "Sphere_2"
     },
     {
       "mesh": 0,
-      "name": "pSphere1_lambert3_0"
+      "name": "Object_4"
     }
   ],
   "samplers": [

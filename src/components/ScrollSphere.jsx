@@ -1,6 +1,5 @@
 import { Html, Scroll, useTexture } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+
 import Sphere from "./Sphere";
 
 export default function ScrollSphere({
@@ -9,6 +8,7 @@ export default function ScrollSphere({
   text,
   scale,
   rotation,
+  rotationClockWise,
 }) {
   return (
     <>
@@ -18,9 +18,10 @@ export default function ScrollSphere({
           position={position}
           model={model}
           scale={scale}
+          rotationClockWise={rotationClockWise}
         />
       </Scroll>
-      <Html center position={[position[0], position[1] + 3.25, position[2]]}>
+      <Html center position={position}>
         <div className='html-wrapper'>
           <p> {text} </p>
         </div>
