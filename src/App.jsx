@@ -5,7 +5,7 @@ import "./css/style.css";
 import ScrollPage from "./components/ScrollPage";
 import { Stars } from "@react-three/drei";
 import { Suspense } from "react";
-import { ProgressLoader } from "./data/Data";
+import { ProgressLoader } from "./components/Progress";
 import { isMobile, isTablet, isWearable } from "react-device-detect";
 import {
   Bloom,
@@ -20,15 +20,9 @@ import { BlendFunction } from "postprocessing";
 function Effects() {
   return (
     <EffectComposer>
-      <DepthOfField
-        focusDistance={15}
-        focalLength={0.02}
-        bokehScale={0.5}
-        height={500}
-      />
       <Bloom
         luminanceThreshold={0}
-        luminanceSmoothing={1}
+        luminanceSmoothing={1.1}
         height={300}
         opacity={1}
       />
@@ -54,7 +48,7 @@ export default function App() {
             <directionalLight intensity={0.7} position={[-2, 0, 0]} />
             <ScrollPage />
             <Stars
-              count={10000}
+              count={5000}
               factor={1}
               radius={100}
               saturation={50}

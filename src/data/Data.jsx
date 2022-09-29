@@ -1,34 +1,8 @@
 import { Html, useGLTF, useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
 import { isMobile, isTablet } from "react-device-detect";
+import ProgressBar from "@ramonak/react-progress-bar";
 
-export function ProgressLoader() {
-  const { progress } = useProgress();
-  useEffect(() => {
-    if (progress === 100) {
-      document.body.animate(
-        [
-          // keyframes
-          { opacity: 0 },
-          { opacity: 1 },
-        ],
-        {
-          // timing options
-          duration: 1000,
-          iterations: 1,
-        }
-      );
-    }
-  }, [progress]);
-  return (
-    <Html center>
-      <div style={{ display: "grid", textAlign: "center", fontSize: "2rem" }}>
-        <p> Loading </p>
-        <progress value={progress} max='100' />
-      </div>
-    </Html>
-  );
-}
 
 export function useModels() {
   const [
@@ -92,7 +66,7 @@ export function useModels() {
       text: "Saturn",
       model: saturn,
       position: isMobile || isTablet ? [0, -75, 0] : [75, 0, 0],
-      scale: .005,
+      scale: 0.005,
       rotation: true,
     },
     {

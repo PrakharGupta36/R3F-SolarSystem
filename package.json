@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@ramonak/react-progress-bar": "^5.0.2",
     "@react-three/drei": "^9.32.0",
     "@react-three/fiber": "^8.8.1",
     "@react-three/postprocessing": "^2.6.2",
