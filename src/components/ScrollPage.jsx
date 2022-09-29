@@ -1,6 +1,5 @@
-import { Scroll, ScrollControls } from "@react-three/drei";
+import { ScrollControls } from "@react-three/drei";
 import ScrollSphere from "./ScrollSphere";
-
 import { useModels } from "../data/Data";
 
 export default function ScrollPage() {

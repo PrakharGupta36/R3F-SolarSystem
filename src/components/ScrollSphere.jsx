@@ -1,4 +1,4 @@
-import { Html, Scroll, useTexture } from "@react-three/drei";
+import { Html, Scroll } from "@react-three/drei";
 
 import Sphere from "./Sphere";
 
@@ -18,6 +18,7 @@ export default function ScrollSphere({
           position={position}
           model={model}
           scale={scale}
+          text={text}
           rotationClockWise={rotationClockWise}
         />
       </Scroll>

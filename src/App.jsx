@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import "./css/style.css";
 
 import ScrollPage from "./components/ScrollPage";
-import { Stars } from "@react-three/drei";
+import { Html, Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import { ProgressLoader } from "./components/Progress";
 import { isMobile, isTablet, isWearable } from "react-device-detect";
@@ -27,8 +27,9 @@ export default function App() {
           shadows
           pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
           <Suspense fallback={<ProgressLoader />}>
-            <directionalLight intensity={0.7} position={[-2, 0, 0]} />
+            <directionalLight intensity={1} position={[-2, 0, 0]} />
             <ScrollPage />
+
             <Stars
               count={200}
               factor={1}

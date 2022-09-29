@@ -7,8 +7,10 @@ export default function Sphere({
   model,
   rotation,
   rotationClockWise,
+  text,
 }) {
   const ref = useRef();
+
   useFrame(() => {
     rotationClockWise
       ? (ref.current.rotation.y -= 0.0009)
