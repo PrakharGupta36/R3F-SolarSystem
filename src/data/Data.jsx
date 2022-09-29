@@ -1,8 +1,5 @@
-import { Html, useGLTF, useProgress } from "@react-three/drei";
-import { useEffect, useState } from "react";
+import { useGLTF } from "@react-three/drei";
 import { isMobile, isTablet } from "react-device-detect";
-import ProgressBar from "@ramonak/react-progress-bar";
-
 
 export function useModels() {
   const [
