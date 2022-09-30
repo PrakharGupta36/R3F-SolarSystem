@@ -9,7 +9,7 @@ export default function ScrollPage() {
     <>
       <ScrollControls
         horizontal
-        pages={isMobile ? 30 : isDesktop ? 8.9 : null}
+        pages={isMobile ? 28 : 9}
         distance={isMobile ? 0.5 : 1}
         damping={10}>
         {useModels().map((e) => {
