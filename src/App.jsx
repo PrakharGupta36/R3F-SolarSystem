@@ -9,7 +9,6 @@ import { ProgressLoader } from "./components/Progress";
 import { isMobile, isTablet, isWearable } from "react-device-detect";
 import {
   Bloom,
-  DepthOfField,
   EffectComposer,
   Noise,
   Vignette,
