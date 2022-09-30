@@ -3,16 +3,24 @@ import { Canvas } from "@react-three/fiber";
 import "./css/style.css";
 
 import ScrollPage from "./components/ScrollPage";
-import { Html, Stars } from "@react-three/drei";
+import { Preload, Stars } from "@react-three/drei";
 import { Suspense } from "react";
 import { ProgressLoader } from "./components/Progress";
 import { isMobile, isTablet, isWearable } from "react-device-detect";
-import { EffectComposer, Noise } from "@react-three/postprocessing";
+import {
+  Bloom,
+  DepthOfField,
+  EffectComposer,
+  Noise,
+  Vignette,
+} from "@react-three/postprocessing";
 
 function Effects() {
   return (
     <EffectComposer>
+      <Bloom luminanceThreshold={0.05} luminanceSmoothing={1.5} height={400} />
       <Noise opacity={0.1} />
+      <Vignette eskil={false} offset={0.1} darkness={1.5} />
     </EffectComposer>
   );
 }
@@ -20,26 +28,24 @@ function Effects() {
 export default function App() {
   return (
     <>
-      {isMobile || isTablet || isWearable ? (
+      {isTablet || isWearable ? (
         <div className='center'>Mobile version is still in development 🥲</div>
       ) : (
-        <Canvas
-          shadows
-          pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
+        <Canvas pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
           <Suspense fallback={<ProgressLoader />}>
             <directionalLight intensity={1} position={[-2, 0, 0]} />
             <ScrollPage />
-
-            <Stars
-              count={200}
-              factor={1}
-              radius={10}
-              fade={10}
-              saturation={50}
-              speed={5}
-            />
+            <Preload />
+            <Effects />
           </Suspense>
-          <Effects />
+          <Stars
+            count={1000}
+            factor={1}
+            radius={10}
+            fade={10}
+            saturation={50}
+            speed={2.5}
+          />
         </Canvas>
       )}
     </>

@@ -3,6 +3,10 @@
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  @media screen and (max-width: 800px) {
+    font-size: 0.85rem;
+  }
 }
 
 html,
@@ -10,18 +14,11 @@ body,
 #root {
   width: 100%;
   height: 100%;
+
   margin: 0;
   padding: 0;
   overflow: hidden;
   color: white;
-}
-
-.html-wrapper {
-  color: white;
-  p {
-    font-size: 2.5rem;
-    text-shadow: 2.5px 2.5px #222222;
-  }
 }
 
 .mobile {
@@ -35,8 +32,8 @@ body,
   }
 }
 
-.link{
-  font-size: .5rem;
+.link {
+  font-size: 0.5rem;
 }
 
 .absolute {
@@ -44,6 +41,7 @@ body,
     text-decoration: underline;
     color: white;
     padding: 0 0.25rem;
+
     color: white;
     text-align: center;
   }

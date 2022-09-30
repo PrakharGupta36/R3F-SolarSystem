@@ -3,6 +3,13 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  * {
+    font-size: 0.85rem;
+  }
 }
 
 html,
@@ -14,15 +21,6 @@ body,
   padding: 0;
   overflow: hidden;
   color: white;
-}
-
-.html-wrapper {
-  color: white;
-}
-
-.html-wrapper p {
-  font-size: 2.5rem;
-  text-shadow: 2.5px 2.5px #222222;
 }
 
 .mobile {
@@ -38,7 +36,7 @@ body,
 }
 
 .link {
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
 
 .absolute a {

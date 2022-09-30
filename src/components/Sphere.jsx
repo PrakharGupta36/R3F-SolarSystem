@@ -1,3 +1,4 @@
+import { Center, Text, Text3D, useIntersect } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -5,22 +6,27 @@ export default function Sphere({
   position,
   scale = 1,
   model,
+  text,
   rotation,
   rotationClockWise,
-  text,
 }) {
-  const ref = useRef();
+  const visible = useRef(false);
+  const refIntersect = useIntersect(
+    (isVisible) => (visible.current = isVisible)
+  );
 
   useFrame(() => {
     rotationClockWise
-      ? (ref.current.rotation.y -= 0.0009)
-      : (ref.current.rotation.y += 0.0009);
+      ? (visible.current.rotation.y -= 0.0009)
+      : (visible.current.rotation.y += 0.0009);
   });
 
   return (
     <>
-      <group ref={ref} position={position} rotation={rotation} scale={scale}>
-        <primitive object={model} />
+      <group position={position}>
+        <group ref={visible} rotation={rotation} scale={scale}>
+          <primitive object={model} />
+        </group>
       </group>
     </>
   );
