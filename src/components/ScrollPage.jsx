@@ -2,14 +2,14 @@ import { Html, ScrollControls } from "@react-three/drei";
 import ScrollSphere from "./ScrollSphere";
 
 import { useModels } from "../data/Data";
-import { isDesktop, isMobile, isTablet } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 
 export default function ScrollPage() {
   return (
     <>
       <ScrollControls
         horizontal
-        pages={isMobile ? 28 : 9}
+        pages={isMobile ? 27.5 : 9}
         distance={isMobile ? 0.25 : 1}
         damping={10}>
         {useModels().map((e) => {
