@@ -21,6 +21,22 @@ body,
   color: white;
 }
 
+.html-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+  .button {
+    background-color: transparent;
+    border: 1px solid white;
+
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
