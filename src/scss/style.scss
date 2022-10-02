@@ -22,18 +22,15 @@ body,
 }
 
 .html-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   cursor: pointer;
+  border: 1px solid white;
+  background-color: black;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
 
-  .button {
-    background-color: transparent;
-    border: 1px solid white;
-
-    padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
+  .icon{
+    position: relative;
+    top: 2.5px;
   }
 }
 

@@ -1,15 +1,18 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import { a } from "@react-spring/three";
+import { useIntersect } from "@react-three/drei";
 
 export default function Sphere({
   position,
   scale = 1,
   model,
-  text,
   rotation,
   rotationClockWise,
 }) {
   const visible = useRef();
+
+  
 
   useFrame(() => {
     rotationClockWise
@@ -18,12 +21,10 @@ export default function Sphere({
   });
 
   return (
-    <>
-      <group position={position}>
-        <group ref={visible} rotation={rotation} scale={scale}>
-          <primitive object={model} />
-        </group>
-      </group>
-    </>
+    <a.group ref={visible} position={position}>
+      <a.group rotation={rotation} scale={scale}>
+        <a.primitive object={model} />
+      </a.group>
+    </a.group>
   );
 }
