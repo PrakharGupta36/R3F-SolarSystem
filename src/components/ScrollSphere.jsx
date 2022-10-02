@@ -1,8 +1,7 @@
 import { Html, useIntersect } from "@react-three/drei";
 import { useContext, useEffect, useRef, useState } from "react";
-import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
-import { ButtonContext, THREEcontext } from "../context/useContext";
-import { onNextUtil, onPreviousUtil } from "../utils/SwitchCase";
+import { GlitchContext } from "../context/useContext";
+
 import Arrows from "./Arrows";
 
 import Sphere from "./Sphere";
@@ -20,6 +19,8 @@ export default function ScrollSphere({
   const ref = useIntersect((isVisible) => (visible.current = isVisible));
 
   const [animate, setAnimate] = useState(false);
+
+  const { glitch } = useContext(GlitchContext);
 
   useEffect(() => {
     if (!visible.current) {
@@ -42,7 +43,7 @@ export default function ScrollSphere({
 
       <Text position={position} text={text} animate={animate} />
 
-      {animate && <Arrows text={text} position={position} />}
+      {animate && !glitch && <Arrows text={text} position={position} />}
 
       <Html center position={[1.5, -3, 0]}>
         <div className='absolute'>
