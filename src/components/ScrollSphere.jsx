@@ -1,14 +1,12 @@
-import {
-  Center,
-  Html,
-  MeshDistortMaterial,
-  MeshReflectorMaterial,
-  MeshWobbleMaterial,
-  Scroll,
-  Text3D,
-} from "@react-three/drei";
+import { Html, useIntersect } from "@react-three/drei";
+import { useContext, useEffect, useRef, useState } from "react";
+import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
+import { ButtonContext, THREEcontext } from "../context/useContext";
+import { onNextUtil, onPreviousUtil } from "../utils/SwitchCase";
+import Arrows from "./Arrows";
 
 import Sphere from "./Sphere";
+import Text from "./Text";
 
 export default function ScrollSphere({
   position,
@@ -18,44 +16,33 @@ export default function ScrollSphere({
   rotation,
   rotationClockWise,
 }) {
+  const visible = useRef(false);
+  const ref = useIntersect((isVisible) => (visible.current = isVisible));
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (!visible.current) {
+      setAnimate(true);
+    }
+  }, [visible]);
+
   return (
     <>
-      <Scroll>
-        <Sphere
-          rotation={rotation}
-          position={position}
-          model={model}
-          text={text}
-          scale={scale}
-          rotationClockWise={rotationClockWise}
-        />
-      </Scroll>
-      <Scroll>
-        <group position={[position[0], position[1], position[2] + 3]}>
-          <Center>
-            <Text3D
-              rotation={[0, 0, 0]}
-              scale={0.25}
-              size={0.45}
-              curveSegments={32}
-              bevelEnabled
-              bevelSize={0.02}
-              bevelThickness={0.2}
-              height={0.05}
-              lineHeight={0.8}
-              letterSpacing={0.0002}
-              font='/Fonts/Poppins.json'>
-              {`${text}`}
-              <meshNormalMaterial />
-            </Text3D>
-          </Center>
-        </group>
-      </Scroll>
-      <Html center position={[0, -3, 0]}>
-        <div className='mobile'>
-          <p> Scroll Horizontally </p>
-        </div>
-      </Html>
+      <Sphere
+        rotation={rotation}
+        animate={animate}
+        refenence={ref}
+        position={position}
+        model={model}
+        text={text}
+        scale={scale}
+        rotationClockWise={rotationClockWise}
+      />
+
+      <Text position={position} text={text} animate={animate} />
+
+      {animate && <Arrows text={text} position={position} />}
 
       <Html center position={[1.5, -3, 0]}>
         <div className='absolute'>
