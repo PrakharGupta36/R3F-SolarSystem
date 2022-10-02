@@ -65,7 +65,7 @@ export function useModels() {
       text: "Jupiter",
       model: jupiter,
       position: planetPosition[4].jupiter,
-      scale: 1.2,
+      scale: 1.1,
       rotationClockWise: false,
     },
     {
