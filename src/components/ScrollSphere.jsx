@@ -1,8 +1,9 @@
-import { Center, Float, Html, Text3D } from "@react-three/drei";
-import { useContext } from "react";
+import { Center, Float, Html, Text3D, useIntersect } from "@react-three/drei";
+import { useContext, useEffect, useRef } from "react";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
-import { THREEcontext } from "../context/useContext";
+import { ButtonContext, THREEcontext } from "../context/useContext";
 import { onNextUtil, onPreviousUtil } from "../utils/SwitchCase";
+import { Transition } from "@react-spring/three";
 
 import Sphere from "./Sphere";
 
@@ -15,17 +16,24 @@ export default function ScrollSphere({
   rotationClockWise,
 }) {
   const { setPlanetPosition } = useContext(THREEcontext);
+  const { setButton } = useContext(ButtonContext);
+
+  const visible = useRef(false);
+  const ref = useIntersect((isVisible) => (visible.current = isVisible));
 
   return (
     <>
       <Sphere
         rotation={rotation}
+        visible={visible}
+        refenence={ref}
         position={position}
         model={model}
         text={text}
         scale={scale}
         rotationClockWise={rotationClockWise}
       />
+
       <group position={[position[0], position[1], position[2] + 3]}>
         <Center>
           <Float
@@ -57,7 +65,10 @@ export default function ScrollSphere({
         <group position={[position[0] + 1.5, position[1], position[2]]}>
           <Html center prepend>
             <div
-              onClick={() => onNextUtil(text, setPlanetPosition)}
+              onClick={() => {
+                onNextUtil(text, setPlanetPosition);
+                setButton("right");
+              }}
               className='html-wrapper'>
               <ImArrowRight2 className='icon' size={20} />
             </div>
@@ -68,7 +79,10 @@ export default function ScrollSphere({
         <group position={[position[0] - 1.7, position[1], position[2]]}>
           <Html center prepend>
             <div
-              onClick={() => onPreviousUtil(text, setPlanetPosition)}
+              onClick={() => {
+                onPreviousUtil(text, setPlanetPosition);
+                setButton("left");
+              }}
               className='html-wrapper'>
               <ImArrowLeft2 className='icon' size={20} />
             </div>

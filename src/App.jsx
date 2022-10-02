@@ -9,11 +9,10 @@ import { isMobile } from "react-device-detect";
 import {
   Bloom,
   EffectComposer,
-  Glitch,
   Noise,
   Vignette,
 } from "@react-three/postprocessing";
-import { THREEcontext } from "./context/useContext";
+import { THREEcontext, ButtonContext } from "./context/useContext";
 
 function Effects() {
   return (
@@ -37,23 +36,28 @@ export default function App() {
     { neptune: [105, 0, 0] },
   ]);
 
+  const [button, setButton] = useState(null);
+
   return (
     <>
       <Canvas pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
         <Suspense fallback={null}>
           <THREEcontext.Provider value={{ planetPosition, setPlanetPosition }}>
-            <directionalLight intensity={1} position={[-2, 0, 0]} />
-            <ScrollPage />
-            <Preload />
-            <Effects />
-            <Stars
-              count={500}
-              factor={1}
-              radius={10}
-              fade={10}
-              saturation={50}
-              speed={2.5}
-            />
+            <ButtonContext.Provider value={{ button, setButton }}>
+              <directionalLight intensity={1.5} position={[-2, 0, 0]} />
+              <ScrollPage />
+              <Preload />
+              <Effects />
+
+              <Stars
+                count={500}
+                factor={1}
+                radius={10}
+                fade={10}
+                saturation={50}
+                speed={2.5}
+              />
+            </ButtonContext.Provider>
           </THREEcontext.Provider>
         </Suspense>
       </Canvas>
