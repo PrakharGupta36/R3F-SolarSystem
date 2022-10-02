@@ -1,7 +1,10 @@
 import { useGLTF } from "@react-three/drei";
+import { useContext } from "react";
 import { isMobile, isTablet } from "react-device-detect";
+import { THREEcontext } from "../context/useContext";
 
 export function useModels() {
+  const { planetPosition, setPlanetPosition } = useContext(THREEcontext);
   const [
     { scene: mercury },
     { scene: venus },
@@ -27,7 +30,7 @@ export function useModels() {
       id: 1,
       text: "Mercury",
       model: mercury,
-      position: [0, 0, 0],
+      position: planetPosition[0].mercury,
       scale: 0.009,
       rotationClockWise: false,
     },
@@ -35,7 +38,7 @@ export function useModels() {
       id: 2,
       text: "Venus",
       model: venus,
-      position: [15, 0, 0],
+      position: planetPosition[1].venus,
       scale: 0.013,
       rotationClockWise: true,
     },
@@ -44,7 +47,7 @@ export function useModels() {
       id: 3,
       text: "Earth",
       model: earth,
-      position: [30, 0, 0],
+      position: planetPosition[2].earth,
       scale: 1.75,
       rotation: [0, -20, 0],
       rotationClockWise: false,
@@ -53,7 +56,7 @@ export function useModels() {
       id: 4,
       text: "Mars",
       model: mars,
-      position: [45, 0, 0],
+      position: planetPosition[3].mars,
       scale: 0.65,
       rotationClockWise: false,
     },
@@ -61,7 +64,7 @@ export function useModels() {
       id: 5,
       text: "Jupiter",
       model: jupiter,
-      position: [60, 0, 0],
+      position: planetPosition[4].jupiter,
       scale: 1.2,
       rotationClockWise: false,
     },
@@ -69,7 +72,7 @@ export function useModels() {
       id: 6,
       text: "Saturn",
       model: saturn,
-      position: [75, 0, 0],
+      position: planetPosition[5].saturn,
       scale: 0.005,
       rotation: [0, 0, -15],
       rotationClockWise: false,
@@ -78,7 +81,7 @@ export function useModels() {
       id: 7,
       text: "Uranus",
       model: uranus,
-      position: [90, 0, 0],
+      position: planetPosition[6].uranus,
       scale: 1,
       rotationClockWise: false,
     },
@@ -86,7 +89,7 @@ export function useModels() {
       id: 8,
       text: "Neptune",
       model: neptune,
-      position: [105, 0, 0],
+      position: planetPosition[7].neptune,
       scale: 0.009,
       rotationClockWise: false,
     },

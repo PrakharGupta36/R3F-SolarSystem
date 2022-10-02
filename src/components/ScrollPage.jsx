@@ -3,6 +3,7 @@ import ScrollSphere from "./ScrollSphere";
 
 import { useModels } from "../data/Data";
 import { isMobile } from "react-device-detect";
+import { useContext } from "react";
 
 export default function ScrollPage() {
   return (
