@@ -1,10 +1,9 @@
 import { useGLTF } from "@react-three/drei";
 import { useContext } from "react";
-import { isMobile, isTablet } from "react-device-detect";
 import { THREEcontext } from "../context/useContext";
 
 export function useModels() {
-  const { planetPosition, setPlanetPosition } = useContext(THREEcontext);
+  const { planetPosition } = useContext(THREEcontext);
   const [
     { scene: mercury },
     { scene: venus },
