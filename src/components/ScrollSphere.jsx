@@ -1,6 +1,5 @@
-import { Html, useIntersect } from "@react-three/drei";
-import { useContext, useEffect, useRef, useState } from "react";
-import { GlitchContext } from "../context/useContext";
+import { Html, Scroll, useIntersect } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
 
 import Arrows from "./Arrows";
 
@@ -19,8 +18,6 @@ export default function ScrollSphere({
   const ref = useIntersect((isVisible) => (visible.current = isVisible));
 
   const [animate, setAnimate] = useState(false);
-
-  const { glitch } = useContext(GlitchContext);
 
   useEffect(() => {
     if (!visible.current) {
@@ -41,11 +38,18 @@ export default function ScrollSphere({
         rotationClockWise={rotationClockWise}
       />
 
-      <Text position={position} text={text} animate={animate} />
+      <Text position={position} text={text} scale={scale} animate={animate} />
 
-      {animate && !glitch && <Arrows text={text} position={position} />}
+      <Arrows text={ text } position={ position } />
+      
+      {/*
+      <Html center position={[0, -3, 0]}>
+        <div className="absolute">
+          <p> Click on the text to see more </p>
+        </div>
+      </Html> */}
 
-      <Html center position={[1.5, -3, 0]}>
+      <Html center position={[1.6, -3, 0]}>
         <div className='absolute'>
           <a href='https://twitter.com/prakhar_369' target='_blank'>
             👋
@@ -53,7 +57,7 @@ export default function ScrollSphere({
         </div>
       </Html>
 
-      <Html center prepend position={[-1.5, -3, 0]}>
+      <Html center prepend position={[-1.6, -3, 0]}>
         <p> Thanks to SketchFab </p>
       </Html>
     </>
