@@ -12,11 +12,23 @@ export default function ScrollPage() {
           scale,
           position,
           rotationClockWise,
+          map,
           rotation,
+          boundingBox,
+          para,
+          distanceFromSun,
+          lengthOfYear,
+          numberOfMoon,
         } = e;
         return (
           <ScrollSphere
             key={id}
+            map={map}
+            numberOfMoon={numberOfMoon}
+            lengthOfYear={lengthOfYear}
+            distanceFromSun={distanceFromSun}
+            para={para}
+            boundingBox={boundingBox}
             model={model}
             text={text}
             scale={scale}

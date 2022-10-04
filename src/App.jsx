@@ -1,10 +1,6 @@
 import "./css/style.css";
 
-import {
-  THREEcontext,
-  ButtonContext,
-  GlitchContext,
-} from "./context/useContext";
+import { THREEcontext, ButtonContext } from "./context/useContext";
 import Scene from "./Scene";
 import { useState } from "react";
 
@@ -21,15 +17,12 @@ export default function App() {
   ]);
 
   const [button, setButton] = useState(null);
-  const [glitch, setGlitch] = useState(false);
 
   return (
     <>
       <THREEcontext.Provider value={{ planetPosition, setPlanetPosition }}>
         <ButtonContext.Provider value={{ button, setButton }}>
-          <GlitchContext.Provider value={{ glitch, setGlitch }}>
-            <Scene />
-          </GlitchContext.Provider>
+          <Scene />
         </ButtonContext.Provider>
       </THREEcontext.Provider>
     </>
