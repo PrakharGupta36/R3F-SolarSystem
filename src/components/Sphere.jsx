@@ -9,7 +9,7 @@ export default function Sphere({
   model,
   animate,
   refenence,
-  text,
+  map,
   rotation,
   rotationClockWise,
 }) {
@@ -20,6 +20,8 @@ export default function Sphere({
       ? (refenence.current.rotation.y -= 0.0005)
       : (refenence.current.rotation.y += 0.0005);
   });
+
+  console.log(model);
 
   const props = useSpring({
     scale: animate ? scale : scale * 0.25,
@@ -34,13 +36,24 @@ export default function Sphere({
 
   return (
     <>
-      <a.mesh
-        position={props.position}
-        ref={refenence}
-        rotation={rotation}
-        scale={props.scale}>
-        <primitive object={model} />
-      </a.mesh>
+      {model ? (
+        <a.mesh
+          position={props.position}
+          ref={refenence}
+          rotation={rotation}
+          scale={props.scale}>
+          <primitive object={model} />
+        </a.mesh>
+      ) : (
+        <a.mesh
+          position={props.position}
+          scale={props.scale}
+          ref={refenence}
+          rotation={rotation}>
+          <sphereGeometry args={[0.5, 32, 32]} />
+          <meshStandardMaterial wireframe={false} map={map} />
+        </a.mesh>
+      )}
     </>
   );
 }

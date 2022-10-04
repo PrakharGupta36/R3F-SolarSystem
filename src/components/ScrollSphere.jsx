@@ -17,6 +17,7 @@ export default function ScrollSphere({
   para,
   boundingBox,
   rotation,
+  map,
   rotationClockWise,
   distanceFromSun,
   lengthOfYear,
@@ -62,6 +63,7 @@ export default function ScrollSphere({
         rotation={rotation}
         animate={animate}
         refenence={ref}
+        map={map}
         position={position}
         model={model}
         text={text}
