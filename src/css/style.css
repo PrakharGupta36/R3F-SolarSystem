@@ -86,10 +86,6 @@ a {
   opacity: 0.6;
 }
 
-.grid p {
-  font-size: 1.1rem;
-}
-
 .grid .inner-3 p {
   display: -webkit-box;
   display: -ms-flexbox;
