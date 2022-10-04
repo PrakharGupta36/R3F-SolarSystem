@@ -5,14 +5,12 @@ import { THREEcontext } from "../context/useContext";
 
 export function useModels() {
   const { planetPosition } = useContext(THREEcontext);
-  const [{ scene: earth }, { scene: saturn }] = useGLTF([
-    "/models/earth/scene.gltf",
-    "/models/saturn/scene.gltf",
-  ]);
+  const [{ scene: saturn }] = useGLTF(["/models/saturn/scene.gltf"]);
 
-  const [mercury, venus, neptune, mars, jupiter, uranus] = useTexture([
-    "/Textures/mercury.jpeg",
-    "/Textures/venus.jpeg",
+  const [mercury, venus, earth, neptune, mars, jupiter, uranus] = useTexture([
+    "/Textures/mercury.png",
+    "/Textures/venus.png",
+    "/Textures/earth.jpeg",
     "/Textures/neptune.jpeg",
     "/Textures/mars.jpeg",
     "/Textures/jupiter.png",
@@ -50,9 +48,8 @@ export function useModels() {
     {
       id: 3,
       text: "Earth",
-      model: earth,
       position: planetPosition[2].earth,
-      scale: 1.75,
+      scale: 3,
       rotation: [0, -20, 0],
       boundingBox: [1, 0.3, 0.5],
       rotationClockWise: false,
@@ -60,6 +57,7 @@ export function useModels() {
       lengthOfYear: "365.25 Earth Days",
       distanceFromSun: 1,
       numberOfMoon: 1,
+      map: earth,
     },
     {
       id: 4,
@@ -78,7 +76,7 @@ export function useModels() {
       id: 5,
       text: "Jupiter",
       position: planetPosition[4].jupiter,
-      scale: isMobile ? 2.6 : 2.6,
+      scale: isMobile ? 3.6 : 4,
       boundingBox: [1.2, 0.3, 0.5],
       rotationClockWise: false,
       para: "Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.",

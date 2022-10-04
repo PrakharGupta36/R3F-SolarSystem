@@ -2,6 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
 import { useContext } from "react";
 import { ButtonContext } from "../context/useContext";
+import { useTexture } from "@react-three/drei";
 
 export default function Sphere({
   position,
@@ -9,6 +10,7 @@ export default function Sphere({
   model,
   animate,
   refenence,
+  text,
   map,
   rotation,
   rotationClockWise,
@@ -20,6 +22,11 @@ export default function Sphere({
       ? (refenence.current.rotation.y -= 0.0005)
       : (refenence.current.rotation.y += 0.0005);
   });
+
+  const [normal, roughness] = useTexture([
+    "/Textures/normal.png",
+    "/Textures/roughness.png",
+  ]);
 
   console.log(model);
 
@@ -45,13 +52,14 @@ export default function Sphere({
           <primitive object={model} />
         </a.mesh>
       ) : (
-        <a.mesh
-          position={props.position}
-          scale={props.scale}
-          ref={refenence}
-          rotation={rotation}>
-          <sphereGeometry args={[0.5, 32, 32]} />
-          <meshStandardMaterial wireframe={false} map={map} />
+        <a.mesh position={props.position} scale={props.scale} ref={refenence}>
+          <sphereGeometry args={[0.5, 128, 128]} />
+          <meshStandardMaterial
+            wireframe={false}
+            normalMap={text === "Earth" ? normal : null}
+            roughnessMap={text === "Earth" ? roughness : null}
+            map={map}
+          />
         </a.mesh>
       )}
     </>

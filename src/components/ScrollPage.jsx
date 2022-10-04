@@ -22,8 +22,8 @@ export default function ScrollPage() {
         } = e;
         return (
           <ScrollSphere
-            key={ id }
-            map = {map}
+            key={id}
+            map={map}
             numberOfMoon={numberOfMoon}
             lengthOfYear={lengthOfYear}
             distanceFromSun={distanceFromSun}
