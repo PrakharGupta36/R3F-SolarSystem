@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+@import url("./modal");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -7,9 +8,9 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-@media screen and (max-width: 800px) {
+@media (pointer: none), (pointer: coarse) {
   * {
-    font-size: 0.845rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -31,12 +32,17 @@ body,
   color: white;
 }
 
+button,
+a {
+  cursor: pointer;
+}
+
 .html-wrapper {
   cursor: pointer;
   border: 2px solid white;
   background-color: black;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
@@ -58,6 +64,40 @@ body,
 
 .mobile p {
   width: 100%;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.grid .line {
+  width: 70%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.295);
+}
+
+.grid span {
+  opacity: 0.6;
+}
+
+.grid p {
+  font-size: 1.1rem;
+}
+
+.grid .inner-3 p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
 }
 
 .link {
@@ -92,6 +132,20 @@ body,
 ::-webkit-scrollbar {
   background: transparent;
   width: 0;
+}
+
+.html_p {
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.html_p a {
+  color: white;
+  text-decoration: underline;
+  padding-left: 0.25rem;
 }
 
 body {

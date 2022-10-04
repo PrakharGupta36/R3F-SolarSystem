@@ -1,17 +1,12 @@
 import { Html } from "@react-three/drei";
 import { useContext } from "react";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
-import {
-  ButtonContext,
-  GlitchContext,
-  THREEcontext,
-} from "../context/useContext";
+import { ButtonContext, THREEcontext } from "../context/useContext";
 import { onNextUtil, onPreviousUtil } from "../utils/SwitchCase";
 
 export default function Arrows({ text, position }) {
   const { setPlanetPosition } = useContext(THREEcontext);
   const { setButton } = useContext(ButtonContext);
-  const { setGlitch } = useContext(GlitchContext);
 
   return (
     <>
@@ -22,10 +17,9 @@ export default function Arrows({ text, position }) {
               onClick={() => {
                 onNextUtil(text, setPlanetPosition);
                 setButton("right");
-                setGlitch(true);
               }}
               className='html-wrapper'>
-              <ImArrowRight2 className='icon' size={20} />
+              <ImArrowRight2 className='icon' size={17} />
             </div>
           </Html>
         </group>
@@ -37,10 +31,9 @@ export default function Arrows({ text, position }) {
               onClick={() => {
                 onPreviousUtil(text, setPlanetPosition);
                 setButton("left");
-                setGlitch(true);
               }}
               className='html-wrapper'>
-              <ImArrowLeft2 className='icon' size={20} />
+              <ImArrowLeft2 className='icon' size={17} />
             </div>
           </Html>
         </group>

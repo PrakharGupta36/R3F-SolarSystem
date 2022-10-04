@@ -16,9 +16,9 @@ export default function Scene() {
             count={2500}
             factor={1}
             radius={10}
-            fade={10}
+            fade={0}
             saturation={50}
-            speed={2.5}
+            speed={0.5}
           />
         </Suspense>
       </Canvas>

@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { ButtonContext } from "../context/useContext";
 
 export default function Sphere({
   position,
@@ -8,9 +9,12 @@ export default function Sphere({
   model,
   animate,
   refenence,
+  text,
   rotation,
   rotationClockWise,
 }) {
+  const { button } = useContext(ButtonContext);
+
   useFrame(() => {
     rotationClockWise
       ? (refenence.current.rotation.y -= 0.0005)
@@ -19,17 +23,24 @@ export default function Sphere({
 
   const props = useSpring({
     scale: animate ? scale : scale * 0.25,
+    position: animate
+      ? position
+      : button === "left"
+      ? [position[0] - 3, position[1], position[2]]
+      : button === "right"
+      ? [position[0] + 3, position[1], position[2]]
+      : position,
   });
 
   return (
     <>
-      <a.group
+      <a.mesh
+        position={props.position}
         ref={refenence}
-        position={position}
         rotation={rotation}
         scale={props.scale}>
         <primitive object={model} />
-      </a.group>
+      </a.mesh>
     </>
   );
 }
