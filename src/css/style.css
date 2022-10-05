@@ -8,12 +8,6 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (pointer: none), (pointer: coarse) {
-  * {
-    font-size: 0.8rem;
-  }
-}
-
 * button:active {
   border-color: transparent !important;
   -webkit-box-shadow: none !important;
@@ -30,6 +24,14 @@ body,
   padding: 0;
   overflow-y: hidden;
   color: white;
+}
+
+@media (pointer: none), (pointer: coarse) {
+  html,
+  body,
+  #root {
+    font-size: 0.8rem;
+  }
 }
 
 button,
@@ -69,9 +71,6 @@ a {
 .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  row-gap: 2rem;
   gap: 1rem;
   margin-top: 2rem;
 }

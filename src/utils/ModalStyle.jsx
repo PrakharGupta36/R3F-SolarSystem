@@ -13,8 +13,9 @@ export const customStyles = {
     backdropFilter: "blur( 4px )",
     borderRadius: "10px",
     color: "black",
+
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
-    width: isMobile || isTablet ? "60vw" : "40vw",
-    height: "50vh",
+    width: isMobile ? "70vw" : "45%",
+    height: isMobile ? "48vh" : "50%",
   },
 };
