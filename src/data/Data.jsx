@@ -90,7 +90,7 @@ export function useModels() {
       text: "Saturn",
       model: saturn,
       position: planetPosition[5].saturn,
-      scale: isMobile ? 0.004 : 0.005,
+      scale: isMobile ? 0.01 : 0.015,
       rotation: [0, 0, -15],
       boundingBox: [1.2, 0.3, 0.5],
       rotationClockWise: false,
