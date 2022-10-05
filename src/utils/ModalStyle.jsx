@@ -15,7 +15,7 @@ export const customStyles = {
     color: "black",
 
     border: "1px solid rgba( 255, 255, 255, 0.18 )",
-    width: isMobile ? "70vw" : "45%",
+    width: isMobile ? "70vw" : "35%",
     height: isMobile ? "48vh" : "50%",
   },
 };
