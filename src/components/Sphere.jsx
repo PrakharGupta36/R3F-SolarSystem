@@ -3,10 +3,11 @@ import { a, useSpring } from "@react-spring/three";
 import { useContext } from "react";
 import { ButtonContext } from "../context/useContext";
 import { useTexture } from "@react-three/drei";
+import { useControls } from "leva";
 
 export default function Sphere({
   position,
-  scale = 1,
+  scale,
   model,
   animate,
   refenence,
@@ -19,8 +20,8 @@ export default function Sphere({
 
   useFrame(() => {
     rotationClockWise
-      ? (refenence.current.rotation.y -= 0.0005)
-      : (refenence.current.rotation.y += 0.0005);
+      ? (refenence.current.rotation.y -= 0.0009)
+      : (refenence.current.rotation.y += 0.0009);
   });
 
   const [normal, roughness] = useTexture([
