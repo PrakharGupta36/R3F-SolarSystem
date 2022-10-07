@@ -122,6 +122,10 @@ img {
   user-select: none;
 }
 
+.html_p .center {
+  width: 300px;
+}
+
 .html_p a {
   color: white;
   text-decoration: underline;

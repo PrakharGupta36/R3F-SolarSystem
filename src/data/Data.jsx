@@ -1,10 +1,8 @@
 import { useGLTF, useTexture } from "@react-three/drei";
-import { useContext } from "react";
+
 import { isMobile } from "react-device-detect";
-import { THREEcontext } from "../context/useContext";
 
 export function useModels() {
-  const { planetPosition } = useContext(THREEcontext);
   const [{ scene: saturn }] = useGLTF(["/models/saturn/scene.gltf"]);
 
   const [mercury, venus, earth, neptune, mars, jupiter, uranus] = useTexture([
@@ -21,10 +19,9 @@ export function useModels() {
     {
       id: 1,
       text: "Mercury",
-      position: planetPosition[0].mercury,
+      position: [0, 0, 0],
       scale: 2,
       boundingBox: [0.5, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Mercury—the smallest planet in our solar system and closest to the Sun—is only slightly larger than Earth's Moon. Mercury is the fastest planet, zipping around the Sun every 88 Earth days.",
       lengthOfYear: "88 Earth Days",
       distanceFromSun: 0.4,
@@ -35,10 +32,9 @@ export function useModels() {
     {
       id: 2,
       text: "Venus",
-      position: planetPosition[1].venus,
+      position: [15, 0, 0],
       scale: 2.2,
       boundingBox: [0.4, 0.25, 0.5],
-      rotationClockWise: true,
       para: "Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.",
       lengthOfYear: "225 Earth Days",
       distanceFromSun: 0.7,
@@ -50,11 +46,10 @@ export function useModels() {
     {
       id: 3,
       text: "Earth",
-      position: planetPosition[2].earth,
+      position: [30, 0, 0],
       scale: 3,
       rotation: [0, -20, 0],
       boundingBox: [0.3, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Earth—our home planet—is the only place we know of so far that's inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.",
       lengthOfYear: "365.25 Earth Days",
       distanceFromSun: 1,
@@ -65,10 +60,9 @@ export function useModels() {
     {
       id: 4,
       text: "Mars",
-      position: planetPosition[3].mars,
+      position: [45, 0, 0],
       scale: 2.2,
       boundingBox: [0.3, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.",
       lengthOfYear: "1.88 Earth Years",
       distanceFromSun: 1.5,
@@ -79,10 +73,9 @@ export function useModels() {
     {
       id: 5,
       text: "Jupiter",
-      position: planetPosition[4].jupiter,
+      position: [60, 0, 0],
       scale: isMobile ? 3.6 : 4,
       boundingBox: [0.5, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.",
       lengthOfYear: "11.86 Earth Years",
       distanceFromSun: 5.2,
@@ -94,11 +87,10 @@ export function useModels() {
       id: 6,
       text: "Saturn",
       model: saturn,
-      position: planetPosition[5].saturn,
+      position: [75, 0, 0],
       scale: isMobile ? 0.01 : 0.015,
       rotation: [0, 0, -15],
       boundingBox: [0.4, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.",
       lengthOfYear: "29.45 Earth Years",
       distanceFromSun: 9.5,
@@ -108,10 +100,9 @@ export function useModels() {
     {
       id: 7,
       text: "Uranus",
-      position: planetPosition[6].uranus,
+      position: [90, 0, 0],
       scale: 2.5,
       boundingBox: [0.4, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.",
       lengthOfYear: "84 Earth Years",
       distanceFromSun: 19.8,
@@ -122,16 +113,25 @@ export function useModels() {
     {
       id: 8,
       text: "Neptune",
-      position: planetPosition[7].neptune,
+      position: [105, 0, 0],
       scale: 2.8,
       boundingBox: [0.4, 0.25, 0.5],
-      rotationClockWise: false,
       para: "Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.",
       lengthOfYear: "164.81 Earth Years",
       distanceFromSun: 30.1,
       numberOfMoon: 14,
       map: neptune,
       img: "/imgs/neptune.jpg",
+    },
+    {
+      id: 9,
+      text: "Pluto",
+      position: [120, 0, 0],
+      img: "/imgs/pluto.jpg",
+      para: "Who cares, we are all gonna die anyway 😇",
+      lengthOfYear: "dQw4w9WgXcQ",
+      distanceFromSun: Infinity,
+      numberOfMoon: 69420,
     },
   ];
 }

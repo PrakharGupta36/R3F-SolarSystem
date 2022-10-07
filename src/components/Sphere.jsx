@@ -1,28 +1,30 @@
 import { useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
-import { useTexture } from "@react-three/drei";
+import { MeshWobbleMaterial, useTexture } from "@react-three/drei";
+import Shader from "./Shader";
+import { useRef } from "react";
 
 export default function Sphere({
   position,
   scale,
   model,
   animate,
-  refenence,
+  reference,
   text,
   map,
   rotation,
-  rotationClockWise,
+  img,
 }) {
   useFrame(() => {
-    rotationClockWise
-      ? (refenence.current.rotation.y -= 0.0009)
-      : (refenence.current.rotation.y += 0.0009);
+    text === "Venus"
+      ? (reference.current.rotation.y -= 0.0009)
+      : text !== "Pluto" && (reference.current.rotation.y += 0.0009);
   });
 
   console.log(animate);
 
   const [normal, roughness] = useTexture([
-    "/Textures/normal.png",
+    "/Textures/normal.jpg",
     "/Textures/roughness.png",
   ]);
 
@@ -32,21 +34,22 @@ export default function Sphere({
 
   return (
     <>
-      {model ? (
+      {text === "Saturn" ? (
         <a.mesh
           position={position}
-          ref={refenence}
+          ref={reference}
           rotation={rotation}
           scale={props.scale}>
           <primitive object={model} />
         </a.mesh>
+      ) : text === "Pluto" ? (
+        <Shader reference={reference} position={position} img={img} />
       ) : (
-        <a.mesh position={position} scale={props.scale} ref={refenence}>
+        <a.mesh position={position} scale={props.scale} ref={reference}>
           <sphereGeometry args={[0.5, 128, 128]} />
           <meshStandardMaterial
             wireframe={false}
             normalMap={text === "Earth" ? normal : null}
-            roughnessMap={text === "Earth" ? roughness : null}
             map={map}
           />
         </a.mesh>

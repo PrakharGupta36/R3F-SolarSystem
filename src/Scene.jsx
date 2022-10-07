@@ -2,7 +2,6 @@ import { Loader, Preload, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { isMobile, isTablet } from "react-device-detect";
-import { Minimap } from "./components/Minimap";
 
 import ScrollPage from "./components/ScrollPage";
 
@@ -30,19 +29,18 @@ export default function Scene() {
         }}
         pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
         <Suspense fallback={null}>
-          <directionalLight intensity={1.5} position={[-2, 0, 0]} />
+          <directionalLight intensity={0.85} position={[-5, 0, 0]} />
           <ScrollPage />
           <Preload />
           <Stars
-            radius={0.001}
-            depth={40}
+            radius={0.0001}
+            depth={35}
             count={100000}
             factor={1}
             saturation={0}
             fade
-            speed={1}
+            speed={2}
           />
-        
         </Suspense>
       </Canvas>
       <Loader />

@@ -20,7 +20,7 @@ export default function ScrollSphere({
   distanceFromSun,
   lengthOfYear,
   numberOfMoon,
-  img
+  img,
 }) {
   const visible = useRef(false);
   const ref = useIntersect((isVisible) => (visible.current = isVisible));
@@ -39,11 +39,12 @@ export default function ScrollSphere({
         <Sphere
           rotation={rotation}
           animate={animate}
-          refenence={ref}
+          reference={ref}
           map={map}
           position={position}
           model={model}
           text={text}
+          img={img}
           scale={scale}
           rotationClockWise={rotationClockWise}
         />
@@ -52,8 +53,8 @@ export default function ScrollSphere({
       <Scroll>
         <Text
           boundingBox={boundingBox}
-          para={ para }
-          img = {img}
+          para={para}
+          img={img}
           position={position}
           text={text}
           scale={scale}
@@ -66,9 +67,18 @@ export default function ScrollSphere({
 
       <Minimap position={position} />
 
-      <Html center position={[0, -2.5, 0]}>
+      <Html center position={[0, -2.2, 0]}>
         <div className='absolute'>
-          <p className='html_p'> Click on the text to see more </p>
+          <p className='html_p'>
+            {" "}
+            <p className='center'> Click on the text to see more </p>{" "}
+          </p>
+        </div>
+      </Html>
+
+      <Html center position={[0, -2.7, 0]}>
+        <div className='absolute'>
+          <p className='html_p'> Scroll Horizontally </p>
         </div>
       </Html>
 

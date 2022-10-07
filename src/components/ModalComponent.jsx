@@ -40,7 +40,9 @@ export default function ModalComponent({
         </button>
         <div className='content'>
           <h1> {text} </h1>
-          <img loading='lazy' src={img} alt={`img of ${text}`} />
+          {text !== "Pluto" && (
+            <img loading='lazy' src={img} alt={`img of ${text}`} />
+          )}
           <p> {para} </p>
           <div className='grid'>
             <div className='grid-inner inner-1'>
