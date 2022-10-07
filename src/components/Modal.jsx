@@ -36,14 +36,14 @@ export default function Modal({
   }
   return (
     <>
-      <mesh
+      <a.mesh
         position={position}
         onClick={onClick}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}>
         <boxGeometry args={boundingBox} />
-        <meshBasicMaterial />
-      </mesh>
+        <meshBasicMaterial visible={false} />
+      </a.mesh>
       <ModalComponent
         para={para}
         text={text}

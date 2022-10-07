@@ -2,6 +2,7 @@ import ScrollSphere from "./ScrollSphere";
 import { useModels } from "../data/Data";
 import { ScrollControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
+import { isMobile } from "react-device-detect";
 
 export default function ScrollPage() {
   const { width } = useThree((state) => state.viewport);
@@ -10,7 +11,7 @@ export default function ScrollPage() {
     <>
       <ScrollControls
         horizontal
-        damping={10}
+        damping={isMobile ? 17 : 12}
         distance={1}
         pages={(width - 15 + useModels().length * 15) / width}>
         {useModels().map((e) => {

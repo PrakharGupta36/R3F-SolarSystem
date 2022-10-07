@@ -14,21 +14,18 @@
     "@react-three/drei": "^9.32.0",
     "@react-three/fiber": "^8.8.1",
     "@react-three/postprocessing": "^2.6.2",
-    "leva": "^0.9.31",
-    "nice-color-palettes": "^3.0.0",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-modal": "^3.15.1",
-    "react-responsive": "^9.0.0",
-    "three": "^0.144.0",
-    "valtio": "^1.7.1"
+    "three": "^0.144.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "vite-plugin-glsl": "^0.4.0"
   }
 }
