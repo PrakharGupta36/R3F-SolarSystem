@@ -1,9 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
-import { useContext } from "react";
-import { ButtonContext } from "../context/useContext";
 import { useTexture } from "@react-three/drei";
-import { useControls } from "leva";
 
 export default function Sphere({
   position,
@@ -16,44 +13,35 @@ export default function Sphere({
   rotation,
   rotationClockWise,
 }) {
-  const { button } = useContext(ButtonContext);
-
   useFrame(() => {
     rotationClockWise
       ? (refenence.current.rotation.y -= 0.0009)
       : (refenence.current.rotation.y += 0.0009);
   });
 
+  console.log(animate);
+
   const [normal, roughness] = useTexture([
     "/Textures/normal.png",
     "/Textures/roughness.png",
   ]);
 
-  console.log(model);
-
   const props = useSpring({
     scale: animate ? scale : scale * 0.25,
-    position: animate
-      ? position
-      : button === "left"
-      ? [position[0] - 3, position[1], position[2]]
-      : button === "right"
-      ? [position[0] + 3, position[1], position[2]]
-      : position,
   });
 
   return (
     <>
       {model ? (
         <a.mesh
-          position={props.position}
+          position={position}
           ref={refenence}
           rotation={rotation}
           scale={props.scale}>
           <primitive object={model} />
         </a.mesh>
       ) : (
-        <a.mesh position={props.position} scale={props.scale} ref={refenence}>
+        <a.mesh position={position} scale={props.scale} ref={refenence}>
           <sphereGeometry args={[0.5, 128, 128]} />
           <meshStandardMaterial
             wireframe={false}

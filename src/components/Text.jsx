@@ -1,25 +1,29 @@
 import { Center, Float, Text3D } from "@react-three/drei";
-import { a, useSpring } from "@react-spring/three";
-import { useContext } from "react";
-import { ButtonContext } from "../context/useContext";
+import Modal from "./Modal";
 
-export default function Text({ position, text, animate }) {
-  const { button } = useContext(ButtonContext);
-
-  const props = useSpring({
-    scale: animate ? 1 : (0.025 * 1) / 2,
-    position: animate
-      ? [position[0], position[1], position[2] + 3]
-      : button === "left"
-      ? [position[0] - 1, position[1], position[2] + 3]
-      : button === "right"
-      ? [position[0] + 1, position[1], position[2] + 3]
-      : [position[0], position[1], position[2] + 3],
-  });
-
+export default function Text({
+  position,
+  text,
+  boundingBox,
+  para,
+  distanceFromSun,
+  lengthOfYear,
+  numberOfMoon,
+  img,
+}) {
   return (
     <>
-      <a.group scale={props.scale} position={props.position}>
+      <Modal
+        distanceFromSun={distanceFromSun}
+        lengthOfYear={lengthOfYear}
+        numberOfMoon={numberOfMoon}
+        boundingBox={boundingBox}
+        position={position}
+        para={para}
+        text={text}
+        img={img}
+      />
+      <group position={[position[0], position[1], position[2] + 3]}>
         <Center>
           <Float
             speed={0.05}
@@ -29,7 +33,7 @@ export default function Text({ position, text, animate }) {
             <Text3D
               rotation={[0, 0, 0]}
               scale={0.25}
-              size={0.4}
+              size={0.8}
               curveSegments={32}
               bevelEnabled
               bevelSize={0.03}
@@ -43,7 +47,7 @@ export default function Text({ position, text, animate }) {
             </Text3D>
           </Float>
         </Center>
-      </a.group>
+      </group>
     </>
   );
 }

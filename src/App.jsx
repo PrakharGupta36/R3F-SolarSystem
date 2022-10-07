@@ -1,6 +1,6 @@
 import "./css/style.css";
 
-import { THREEcontext, ButtonContext } from "./context/useContext";
+import { THREEcontext } from "./context/useContext";
 import Scene from "./Scene";
 import { useState } from "react";
 
@@ -16,14 +16,10 @@ export default function App() {
     { neptune: [105, 0, 0] },
   ]);
 
-  const [button, setButton] = useState(null);
-
   return (
     <>
       <THREEcontext.Provider value={{ planetPosition, setPlanetPosition }}>
-        <ButtonContext.Provider value={{ button, setButton }}>
-          <Scene />
-        </ButtonContext.Provider>
+        <Scene />
       </THREEcontext.Provider>
     </>
   );
