@@ -127,7 +127,7 @@ export function useModels() {
       id: 9,
       text: "Pluto",
       position: [120, 0, 0],
-      img: "/imgs/pluto.jpeg",
+      img: "/imgs/pluto.jpg",
       para: "Fuck you too 🥰",
       lengthOfYear: "dQw4w9WgXcQ",
       distanceFromSun: Infinity,
