@@ -1,25 +1,48 @@
-import { Loader, OrbitControls, Preload, Stars } from "@react-three/drei";
+import { Loader, Preload, Stars } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { isMobile } from "react-device-detect";
+import { isMobile, isTablet } from "react-device-detect";
+import { Minimap } from "./components/Minimap";
+
 import ScrollPage from "./components/ScrollPage";
 
 export default function Scene() {
+  const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  };
+
+  const frustumSize = 430;
+  const aspect = sizes.width / sizes.height;
+
   return (
     <>
-      <Canvas pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
+      <Canvas
+        orthographic
+        camera={{
+          left: (frustumSize * aspect) / -2,
+          right: (frustumSize * aspect) / 2,
+          top: frustumSize / 2,
+          bottom: frustumSize / -2,
+          far: 100,
+          near: 0.1,
+          zoom: isMobile ? 90 : isTablet ? 100 : 120,
+        }}
+        pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
         <Suspense fallback={null}>
           <directionalLight intensity={1.5} position={[-2, 0, 0]} />
           <ScrollPage />
           <Preload />
           <Stars
-            count={2500}
+            radius={0.001}
+            depth={40}
+            count={100000}
             factor={1}
-            radius={10}
-            fade={0}
-            saturation={50}
-            speed={0.5}
+            saturation={0}
+            fade
+            speed={1}
           />
+        
         </Suspense>
       </Canvas>
       <Loader />

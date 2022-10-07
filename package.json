@@ -14,15 +14,16 @@
     "@react-three/drei": "^9.32.0",
     "@react-three/fiber": "^8.8.1",
     "@react-three/postprocessing": "^2.6.2",
-    "framer-motion": "^7.5.1",
     "leva": "^0.9.31",
+    "nice-color-palettes": "^3.0.0",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-modal": "^3.15.1",
     "react-responsive": "^9.0.0",
-    "three": "^0.144.0"
+    "three": "^0.144.0",
+    "valtio": "^1.7.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

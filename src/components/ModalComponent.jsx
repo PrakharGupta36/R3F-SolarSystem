@@ -14,12 +14,9 @@ export default function ModalComponent({
   distanceFromSun,
   lengthOfYear,
   numberOfMoon,
+  img,
 }) {
   let subtitle;
-
-  function openModal() {
-    setIsOpen(true);
-  }
 
   function afterOpenModal() {
     subtitle.style.color = "#000000";
@@ -42,7 +39,8 @@ export default function ModalComponent({
           Close
         </button>
         <div className='content'>
-          <h1 ref={(_subtitle) => (subtitle = _subtitle)}>{text}</h1>
+          <h1> {text} </h1>
+          <img loading='lazy' src={img} alt={`img of ${text}`} />
           <p> {para} </p>
           <div className='grid'>
             <div className='grid-inner inner-1'>
