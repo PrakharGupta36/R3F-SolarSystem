@@ -21,8 +21,6 @@ export default function Sphere({
       : text !== "Pluto" && (reference.current.rotation.y += 0.0009);
   });
 
-  console.log(animate);
-
   const [normal, roughness] = useTexture([
     "/Textures/normal.jpg",
     "/Textures/roughness.png",

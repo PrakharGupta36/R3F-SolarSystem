@@ -2,17 +2,27 @@ import ScrollSphere from "./ScrollSphere";
 import { useModels } from "../data/Data";
 import { ScrollControls } from "@react-three/drei";
 import { useThree } from "@react-three/fiber";
-import { isMobile } from "react-device-detect";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function ScrollPage() {
   const { width } = useThree((state) => state.viewport);
+  const [touch, setTouch] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      setTouch(true);
+    } else {
+      setTouch(false);
+    }
+  }, []);
 
   return (
     <>
       <ScrollControls
         horizontal
-        damping={12}
-        distance={1}
+        damping={touch ? 20 : 12}
+        distance={touch ? 0.5 : 1}
         pages={(width - 15 + useModels().length * 15) / width}>
         {useModels().map((e) => {
           const {
