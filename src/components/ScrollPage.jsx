@@ -22,7 +22,7 @@ export default function ScrollPage() {
       <ScrollControls
         horizontal
         damping={touch ? 6 : 12}
-        distance={touch ? 0.5 : 1}
+        distance={touch ? 0.7 : 1}
         pages={(width - 15 + useModels().length * 15) / width}>
         {useModels().map((e) => {
           const {
