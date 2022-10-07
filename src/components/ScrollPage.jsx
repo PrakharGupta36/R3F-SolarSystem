@@ -11,7 +11,7 @@ export default function ScrollPage() {
     <>
       <ScrollControls
         horizontal
-        damping={isMobile ? 17 : 12}
+        damping={isMobile ? 25 : 12}
         distance={1}
         pages={(width - 15 + useModels().length * 15) / width}>
         {useModels().map((e) => {

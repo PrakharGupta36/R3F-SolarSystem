@@ -7,6 +7,7 @@ import {
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useRef } from "react";
+import { isMobile } from "react-device-detect";
 
 export default function Shader({ position, img }) {
   const ref = useRef();
@@ -18,8 +19,8 @@ export default function Shader({ position, img }) {
   return (
     <>
       <mesh position={position} scale={[2, 4, 1]}>
-        <planeGeometry args={[1, 1, 32, 32]} />
-        <MeshDistortMaterial ref={ref} speed={5} map={texture} />
+        <planeGeometry args={[isMobile ? 1.5 : 1.8, 0.6, 32, 32]} />
+        <MeshDistortMaterial ref={ref} speed={2} map={texture} />
       </mesh>
       <SpotLight
         position={[120, 0, 4]}
