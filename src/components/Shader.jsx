@@ -19,7 +19,7 @@ export default function Shader({ position, img }) {
     <>
       <mesh position={position} scale={[2, 4, 1]}>
         <planeGeometry args={[1, 1, 32, 32]} />
-        <MeshDistortMaterial ref={ref} speed={5} map={texture} />
+        <MeshDistortMaterial ref={ref} speed={1} map={texture} />
       </mesh>
       <SpotLight
         position={[120, 0, 4]}
