@@ -29,7 +29,7 @@ export default function Scene() {
         }}
         pixelratio={Math.min(2, isMobile ? devicePixelRatio : 1)}>
         <Suspense fallback={null}>
-          <directionalLight intensity={0.85} position={[-5, 0, 0]} />
+          <directionalLight intensity={1.5} position={[-5, 0, 0]} />
           <ScrollPage />
           <Preload />
           <Stars

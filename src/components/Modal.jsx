@@ -53,7 +53,7 @@ export default function Modal({
         numberOfMoon={numberOfMoon}
         lengthOfYear={lengthOfYear}
         distanceFromSun={distanceFromSun}
-      />{" "}
+      />
     </>
   );
 }

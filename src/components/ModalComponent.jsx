@@ -34,7 +34,10 @@ export default function ModalComponent({
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Example Modal'>
+        contentLabel='Example Modal'
+        portalClassName='modal'
+        overlayClassName='overlay'
+      >
         <button className='modal-button' onClick={closeModal}>
           Close
         </button>

@@ -70,8 +70,7 @@ export default function ScrollSphere({
       <Html center position={[0, -2.2, 0]}>
         <div className='absolute'>
           <p className='html_p'>
-            {" "}
-            <p className='center'> Click on the text to see more </p>{" "}
+            <p className='center'> Click on the text to see more </p>
           </p>
         </div>
       </Html>

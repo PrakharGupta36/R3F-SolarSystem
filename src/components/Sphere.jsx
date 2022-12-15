@@ -1,8 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { a, useSpring } from "@react-spring/three";
-import { MeshWobbleMaterial, useTexture } from "@react-three/drei";
+import { useTexture } from "@react-three/drei";
 import Shader from "./Shader";
-import { useRef } from "react";
 
 export default function Sphere({
   position,
